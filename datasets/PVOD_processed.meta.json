@@ -1,0 +1,54 @@
+{
+  "out_csv": "datasets/PVOD_processed.csv",
+  "n_rows": 271967,
+  "stations": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "datetime_min": "2018-06-30 16:00:00",
+  "datetime_max": "2019-06-13 15:45:00",
+  "target_col": "target_power",
+  "target_norm_col": "target_power_norm",
+  "pclear_col": "P_clear",
+  "station_col": "station_id",
+  "recommended_weather_cols": [
+    "meas_globalirrad",
+    "meas_temperature",
+    "meas_pressure",
+    "meas_winddirection",
+    "meas_windspeed",
+    "hour_sin",
+    "hour_cos",
+    "doy_sin",
+    "doy_cos"
+  ],
+  "recommended_eval_weather_cols": [
+    "nwp_globalirrad",
+    "nwp_temperature",
+    "nwp_pressure",
+    "nwp_winddirection",
+    "nwp_windspeed",
+    "hour_sin",
+    "hour_cos",
+    "doy_sin",
+    "doy_cos"
+  ],
+  "recommended_physics_cols": [
+    "P_clear",
+    "P_clear_norm",
+    "capacity",
+    "longitude",
+    "latitude",
+    "array_tilt",
+    "array_azimuth"
+  ],
+  "note": "weather_cols and eval_weather_cols are aligned by order. Use measured columns for training and NWP columns for validation/test."
+}

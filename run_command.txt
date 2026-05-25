@@ -1,0 +1,153 @@
+# 단일실험
+python train.py \
+  --csv datasets/PVOD_processed.csv \
+  --time_col datetime \
+  --target_col target_power_norm \
+  --pclear_col P_clear_norm \
+  --setting direct \
+  --backbone tcn \
+  --split_type station \
+  --station_col station_id \
+  --train_stations 0 1 2 3 4 5 \
+  --val_stations 6 \
+  --test_stations 7 8 9 \
+  --weather_cols \
+    meas_globalirrad \
+    meas_temperature \
+    meas_pressure \
+    meas_winddirection \
+    meas_windspeed \
+    hour_sin \
+    hour_cos \
+    doy_sin \
+    doy_cos \
+  --eval_weather_cols \
+    nwp_globalirrad \
+    nwp_temperature \
+    nwp_pressure \
+    nwp_winddirection \
+    nwp_windspeed \
+    hour_sin \
+    hour_cos \
+    doy_sin \
+    doy_cos \
+  --physics_cols \
+    P_clear_norm \
+    capacity \
+    longitude \
+    latitude \
+    array_tilt \
+    array_azimuth \
+  --seq_len 24 \
+  --batch_size 128 \
+  --epochs 200 \
+  --patience 20 \
+  --lr 5e-4 \
+  --hidden_dim 128 \
+  --depth 4 \
+  --dropout 0.1 \
+  --device cuda \
+  --out_root runs_pvod \
+  --seed 42
+
+# decomposition
+python train.py \
+  --csv datasets/PVOD_processed.csv \
+  --time_col datetime \
+  --target_col target_power_norm \
+  --pclear_col P_clear_norm \
+  --setting decomposition \
+  --backbone tcn \
+  --split_type station \
+  --station_col station_id \
+  --train_stations 0 1 2 3 4 5 \
+  --val_stations 6 \
+  --test_stations 7 8 9 \
+  --weather_cols \
+    meas_globalirrad \
+    meas_temperature \
+    meas_pressure \
+    meas_winddirection \
+    meas_windspeed \
+    hour_sin \
+    hour_cos \
+    doy_sin \
+    doy_cos \
+  --eval_weather_cols \
+    nwp_globalirrad \
+    nwp_temperature \
+    nwp_pressure \
+    nwp_winddirection \
+    nwp_windspeed \
+    hour_sin \
+    hour_cos \
+    doy_sin \
+    doy_cos \
+  --physics_cols \
+    P_clear_norm \
+    capacity \
+    longitude \
+    latitude \
+    array_tilt \
+    array_azimuth \
+  --seq_len 24 \
+  --batch_size 128 \
+  --epochs 200 \
+  --patience 20 \
+  --lr 5e-4 \
+  --hidden_dim 128 \
+  --depth 4 \
+  --dropout 0.1 \
+  --device cuda \
+  --out_root runs_pvod \
+  --seed 42
+
+# 전체 baseline
+python run_all.py \
+  --csv datasets/PVOD_processed.csv \
+  --time_col datetime \
+  --target_col target_power_norm \
+  --pclear_col P_clear_norm \
+  --split_type station \
+  --station_col station_id \
+  --train_stations 0 1 2 3 4 5 \
+  --val_stations 6 \
+  --test_stations 7 8 9 \
+  --weather_cols \
+    meas_globalirrad \
+    meas_temperature \
+    meas_pressure \
+    meas_winddirection \
+    meas_windspeed \
+    hour_sin \
+    hour_cos \
+    doy_sin \
+    doy_cos \
+  --eval_weather_cols \
+    nwp_globalirrad \
+    nwp_temperature \
+    nwp_pressure \
+    nwp_winddirection \
+    nwp_windspeed \
+    hour_sin \
+    hour_cos \
+    doy_sin \
+    doy_cos \
+  --physics_cols \
+    P_clear_norm \
+    capacity \
+    longitude \
+    latitude \
+    array_tilt \
+    array_azimuth \
+  --seq_len 24 \
+  --batch_size 128 \
+  --epochs 200 \
+  --patience 20 \
+  --lr 5e-4 \
+  --hidden_dim 128 \
+  --depth 4 \
+  --dropout 0.1 \
+  --device cuda \
+  --out_root runs_pvod \
+  --seed 42
